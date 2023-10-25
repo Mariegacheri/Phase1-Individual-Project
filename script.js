@@ -1,0 +1,1 @@
+const url = 'https://v6.exchangerate-api.com/v6/b589eecc523deb31dda39fe9/latest/USD'
