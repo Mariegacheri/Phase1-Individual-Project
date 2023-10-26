@@ -40,15 +40,4 @@ select,input{
     padding: 8px 15px;
     font-weight: 700;
 }
-button{
-    width: 200px;
-    display: block;
-    padding: 10;
-    margin:0 auto;
-    border-radius: 15px;
-    background-color: #e62e00;
-    color: #fff;
-    border: 0;
-    cursor: pointer;
-    font-size: 22px;
-}
+

@@ -1,7 +1,7 @@
 const selectElement = document.querySelector("#selectCurrency");
 const inputCurrency = document.getElementById("input_currency");
 const outputCurrency = document.getElementById("output_currency");
-let h2 = document.getElementById("heading_two")
+const textOutput=  document.getElementById("textOutput")
 
 function selectValue() {
     return selectElement.value; // Get the selected option value
@@ -24,7 +24,9 @@ selectElement.addEventListener("change", async function() {
             outputCurrency.addEventListener("change", ()=>{
                 let selectedValue = outputCurrency.value;
                 let results = data.conversion_rates[selectedValue] * inputCurrency.value
-                h2.textContent= results
+                textOutput.innerHTML=`
+                <p>Rate: ${selectValue()}. ${inputCurrency.value}= ${selectedValue}. ${results}</p>
+                `
             })
         })
         .catch(error => {
