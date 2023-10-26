@@ -1,16 +1,18 @@
 const selectElement = document.querySelector("#selectCurrency");
 const inputCurrency = document.getElementById("input_currency");
 const outputCurrency = document.getElementById("output_currency");
+let h2 = document.getElementById("heading_two")
 
 function selectValue() {
     return selectElement.value; // Get the selected option value
 }
 
-selectElement.addEventListener("change", function() {
+
+selectElement.addEventListener("change", async function() {
     // When the user selects an option, update the API URL and fetch data
     const apiUrl = `https://v6.exchangerate-api.com/v6/b589eecc523deb31dda39fe9/latest/${selectValue()}`;
 
-    fetch(apiUrl)
+    await fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -19,7 +21,11 @@ selectElement.addEventListener("change", function() {
         })
         .then(data => {
             // Your JSON object
-            console.log(data);
+            outputCurrency.addEventListener("change", ()=>{
+                let selectedValue = outputCurrency.value;
+                let results = data.conversion_rates[selectedValue] * inputCurrency.value
+                h2.textContent= results
+            })
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
