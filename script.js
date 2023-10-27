@@ -25,7 +25,7 @@ selectElement.addEventListener("change", async function() {
                 let selectedValue = outputCurrency.value;
                 let results = data.conversion_rates[selectedValue] * inputCurrency.value
                 textOutput.innerHTML=`
-                <p>Rate: ${selectValue()}. ${inputCurrency.value}= ${selectedValue}. ${results}</p>
+                <p> ${selectValue()}. ${inputCurrency.value}= ${selectedValue}. ${results}</p>
                 `
             })
         })
